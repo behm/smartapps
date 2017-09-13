@@ -27,7 +27,10 @@ definition(
 preferences {
 	section("Select the devices") {
 		input "contact1", "capability.contactSensor", title: "Select a contact sensor"
-        input "switches", "capability.switch", title: "Select a light", multiple: true
+        	input "switches", "capability.switch", title: "Select a light", multiple: true
+	}
+	section("Options") {
+		turnOffOnClose
 	}
 }
 
@@ -46,7 +49,7 @@ def updated() {
 
 def initialize() {
 	subscribe contact1, "contact.open", openHandler
-    subscribe contact1, "contact.closed", closedHandler
+    	/*subscribe contact1, "contact.closed", closedHandler*/
 }
 
 def openHandler(evt) {
